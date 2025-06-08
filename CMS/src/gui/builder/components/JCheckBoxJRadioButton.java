@@ -9,12 +9,18 @@ import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 
 public class JCheckBoxJRadioButton {
 
 	private JFrame frame;
 	private int sum = 0;
 	private JLabel lblResult;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
+	private JLabel lblImage;
 
 	/**
 	 * Launch the application.
@@ -46,7 +52,7 @@ public class JCheckBoxJRadioButton {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("체크박스와 라디오버튼");
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 485);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -56,6 +62,7 @@ public class JCheckBoxJRadioButton {
 		frame.getContentPane().add(lblNewLabel);
 
 		JCheckBox chckbxNewCheckBox = new JCheckBox("사과");
+		chckbxNewCheckBox.setBorderPainted(true);
 		chckbxNewCheckBox.addItemListener(new ItemListener() {
 
 			public void itemStateChanged(ItemEvent e) {
@@ -75,6 +82,7 @@ public class JCheckBoxJRadioButton {
 		frame.getContentPane().add(chckbxNewCheckBox);
 
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("배");
+		chckbxNewCheckBox_1.setBorderPainted(true);
 		chckbxNewCheckBox_1.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				int i = e.getStateChange();
@@ -93,6 +101,7 @@ public class JCheckBoxJRadioButton {
 		frame.getContentPane().add(chckbxNewCheckBox_1);
 
 		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("체리");
+		chckbxNewCheckBox_2.setBorderPainted(true);
 		chckbxNewCheckBox_2.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				int i = e.getStateChange();
@@ -117,5 +126,55 @@ public class JCheckBoxJRadioButton {
 		lblResult.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResult.setBounds(12, 110, 412, 27);
 		frame.getContentPane().add(lblResult);
+		
+		JRadioButton rdbtnNewRadioButton = new JRadioButton("남자");
+		rdbtnNewRadioButton.setBorderPainted(true);
+		rdbtnNewRadioButton.setSelected(true);
+		buttonGroup.add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.setBounds(70, 169, 113, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton);
+		
+		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("여자");
+		rdbtnNewRadioButton_1.setBorderPainted(true);
+		buttonGroup.add(rdbtnNewRadioButton_1);
+		rdbtnNewRadioButton_1.setBounds(253, 169, 113, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		
+		lblImage = new JLabel("");
+		lblImage.setIcon(new ImageIcon("C:\\Users\\chomi\\OneDrive\\바탕 화면\\images\\img\\apple.jpg"));
+		lblImage.setBounds(154, 293, 128, 145);
+		frame.getContentPane().add(lblImage);
+		
+		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("사과");
+		rdbtnNewRadioButton_2.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				lblImage.setIcon(new ImageIcon("C:\\Users\\chomi\\OneDrive\\바탕 화면\\images\\img\\apple.jpg"));
+			}
+		});
+		buttonGroup_1.add(rdbtnNewRadioButton_2);
+		rdbtnNewRadioButton_2.setSelected(true);
+		rdbtnNewRadioButton_2.setBounds(66, 253, 62, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		
+		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("배");
+		rdbtnNewRadioButton_3.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				lblImage.setIcon(new ImageIcon("C:\\Users\\chomi\\OneDrive\\바탕 화면\\images\\img\\pear.jpg"));
+			}
+		});
+		buttonGroup_1.add(rdbtnNewRadioButton_3);
+		rdbtnNewRadioButton_3.setBounds(194, 253, 45, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		
+		JRadioButton rdbtnNewRadioButton_4 = new JRadioButton("체리");
+		rdbtnNewRadioButton_4.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				lblImage.setIcon(new ImageIcon("C:\\Users\\chomi\\OneDrive\\바탕 화면\\images\\img\\cherry.jpg"));
+			}
+		});
+		buttonGroup_1.add(rdbtnNewRadioButton_4);
+		rdbtnNewRadioButton_4.setBounds(305, 253, 62, 23);
+		frame.getContentPane().add(rdbtnNewRadioButton_4);
+		
 	}
 }
